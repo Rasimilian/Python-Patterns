@@ -1,3 +1,3 @@
 # Python-Patterns
 
-A collection of patterns for Python developers to remember :)
+A collection of design patterns for Python developers to remember :)
