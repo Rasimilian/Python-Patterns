@@ -1,4 +1,4 @@
-from patterns.creational.factory.base import *
+from . import *
 from patterns.creational.factory.developer import Developer, JavaDeveloper, PythonDeveloper
 
 
@@ -16,3 +16,12 @@ class JavaDeveloperFactory(DeveloperFactory):
 class PythonDeveloperFactory(DeveloperFactory):
     def create_developer(self) -> PythonDeveloper:
         return PythonDeveloper()
+
+
+def get_developer_factory(language: str) -> DeveloperFactory:
+    languages = {"Java": JavaDeveloperFactory,
+                 "Python": PythonDeveloperFactory}
+    if language not in languages:
+        raise ValueError("Unknown programming language!")
+
+    return languages[language]()

@@ -1,13 +1,10 @@
-from patterns.creational.factory.developer_factory import DeveloperFactory, JavaDeveloperFactory, PythonDeveloperFactory
+from patterns.creational.factory.developer_factory import get_developer_factory
 
 
-def get_developer_factory(language: str) -> DeveloperFactory:
-    languages = {"Java": JavaDeveloperFactory,
-                 "Python": PythonDeveloperFactory}
-    return languages[language]()
-
-
-if __name__ == "__main__":
+def main():
+    """
+    A factory method creates two developers writing in Java and Python.
+    """
     java_developer_factory = get_developer_factory("Java")
     java_developer = java_developer_factory.create_developer()
     java_developer.write_code()
@@ -17,3 +14,5 @@ if __name__ == "__main__":
     python_developer.write_code()
 
 
+if __name__ == "__main__":
+    main()

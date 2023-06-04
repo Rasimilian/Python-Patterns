@@ -1,4 +1,4 @@
-from patterns.creational.factory.base import *
+from . import *
 
 
 class Developer(ABC):
