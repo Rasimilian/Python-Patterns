@@ -27,4 +27,4 @@ def test_factory(department: str,
     assert isinstance(analyst, Analyst)
     assert isinstance(analyst, expected_analyst)
     assert isinstance(pm, ProjectManager)
-    assert isinstance(pm, '2')
+    assert isinstance(pm, expected_pm)
