@@ -1,8 +1,6 @@
 import pytest
-from typing import Type
-from patterns.creational.factory.main import get_developer_factory
-from patterns.creational.factory.developer import Developer, JavaDeveloper, PythonDeveloper
-from patterns.creational.factory.developer_factory import DeveloperFactory, JavaDeveloperFactory, PythonDeveloperFactory
+
+from patterns.creational.factory.developer_factory import *
 
 
 @pytest.mark.parametrize("language, expected_factory, expected_developer",
@@ -11,8 +9,8 @@ from patterns.creational.factory.developer_factory import DeveloperFactory, Java
     ("Python", PythonDeveloperFactory, PythonDeveloper)
 ])
 def test_factory(language: str,
-                 expected_factory: Type[DeveloperFactory],
-                 expected_developer: Type[Developer]):
+                 expected_factory: Type[DeveloperFactory_],
+                 expected_developer: Type[Developer_]):
     developer_factory = get_developer_factory(language)
     developer = developer_factory.create_developer()
     developer.write_code()

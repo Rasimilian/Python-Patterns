@@ -9,9 +9,9 @@ class Developer(ABC):
 
 class JavaDeveloper(Developer):
     def write_code(self):
-        print("Java developer writes a Java code.")
+        print("Java developer writes Java code.")
 
 
 class PythonDeveloper(Developer):
     def write_code(self):
-        print("Python developer writes a Python code.")
+        print("Python developer writes Python code.")
