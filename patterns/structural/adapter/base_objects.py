@@ -21,4 +21,4 @@ class Chinese:
         self.main_lang = "Chinese"
 
     def speak_chinese(self) -> None:
-        print("你好!")
+        print("Ni Hao!")
