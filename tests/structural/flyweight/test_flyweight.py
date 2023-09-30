@@ -1,5 +1,6 @@
 from patterns.structural.flyweight.flyweight import SmartphoneMarket
 from patterns.structural.flyweight.flyweight_pythonic import Smartphone
+from patterns.structural.flyweight.flyweight_metaclass import SmartphoneM
 
 
 def test_flyweight(capsys):
@@ -69,3 +70,24 @@ def test_flyweight_pythonic(capsys):
     assert phone_3 is not phone_5
     assert Smartphone.list_cached_smartphones() == 1
     assert not hasattr(phone_5, 'memory')
+
+
+def test_flyweight_metaclass(capsys):
+    phone_1 = SmartphoneM(manufacturer="Xiaomi", model="9T", color="Blue")
+    phone_1.make_call()
+    out, err = capsys.readouterr()
+    assert out == "Added new smartphone to the cache: Xiaomi_9T\nMaking call from the smartphone Xiaomi 9T\n"
+
+    phone_2 = SmartphoneM(manufacturer="Xiaomi", model="9T", color="White")
+    phone_2.make_call()
+    out, err = capsys.readouterr()
+    assert out == "Reused cached smartphone: Xiaomi_9T\nMaking call from the smartphone Xiaomi 9T\n"
+    assert phone_1 == phone_2
+    assert phone_1 is phone_2
+    assert SmartphoneM.list_cached_smartphones() == 1
+
+    phone_3 = SmartphoneM(manufacturer="iPhone", model="15", color="Grey")
+    phone_3.make_call()
+    out, err = capsys.readouterr()
+    assert out == "Added new smartphone to the cache: iPhone_15\nMaking call from the smartphone iPhone 15\n"
+    assert SmartphoneM.list_cached_smartphones() == 2

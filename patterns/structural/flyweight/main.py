@@ -1,5 +1,6 @@
 from patterns.structural.flyweight.flyweight import SmartphoneMarket
 from patterns.structural.flyweight.flyweight_pythonic import Smartphone
+from patterns.structural.flyweight.flyweight_metaclass import SmartphoneM
 
 
 def main():
@@ -53,6 +54,23 @@ def main():
     print(f"phone_3 is phone_5: {phone_3 is phone_5}")
     print(hasattr(phone_5, 'memory'))
     print(f"Number of stored smartphones: {Smartphone.list_cached_smartphones()}")
+    print("\t")
+
+    print("Metaclass implementation")
+    phone_1 = SmartphoneM(manufacturer="Xiaomi", model="9T", color="Blue")
+    phone_1.make_call()
+    print("\t")
+
+    phone_2 = SmartphoneM(manufacturer="Xiaomi", model="9T", color="White")
+    phone_2.make_call()
+    print(f"Number of stored smartphones: {SmartphoneM.list_cached_smartphones()}")
+    print(f"phone_1 == phone_2: {phone_1 == phone_2}")
+    print(f"phone_1 is phone_2: {phone_1 is phone_2}")
+    print("\t")
+
+    phone_3 = SmartphoneM(manufacturer="iPhone", model="15", color="Grey")
+    phone_3.make_call()
+    print(f"Number of stored smartphones: {SmartphoneM.list_cached_smartphones()}")
 
 
 if __name__ == "__main__":
