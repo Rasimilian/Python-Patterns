@@ -5,3 +5,5 @@ If a class and its implementation are often changed this pattern will be especia
 useful as well since we are going to vary them independently.
 
 ### Notes:
+* The Adapter pattern makes things work after they're designed; Bridge makes them 
+work before they are.
