@@ -12,3 +12,5 @@ class extension and interface implementation.
 is passed as an argument for its method further call)
 * There is no need to create the Adapter class. One may create just a wrapper function
 instead.
+* The Adapter pattern makes things work after they're designed; Bridge makes them 
+work before they are.

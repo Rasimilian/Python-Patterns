@@ -1,12 +1,14 @@
-from typing import Callable, TypeVar
+from typing import Callable, TypeVar, Union
 
-T = TypeVar("T")
+from patterns.structural.adapter.base_objects import Russian, American, Chinese
+
+Nationality = TypeVar("Nationality", bound=Union[Russian, American, Chinese])
 
 
 class Adapter:
     """Adapter implementation without inheritance. It can be used with any classes."""
 
-    def __init__(self, nationality: T, **adapted_methods: Callable):
+    def __init__(self, nationality: Nationality, **adapted_methods: Callable):
         self.nationality = nationality
         self.__dict__.update(adapted_methods)
 
