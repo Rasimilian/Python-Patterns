@@ -3,7 +3,7 @@ from patterns.behavioral.iterator.iterator_pythonic import MyCollection
 from patterns.behavioral.iterator.iterator_classic import MyNumberCollection
 
 
-def test_iterator(capsys):
+def test_iterator():
     expected_numbers = ["one", "two"]
 
     for idx, item in enumerate(numbers_up_to(2)):
