@@ -1,5 +1,3 @@
-import time
-
 from patterns.behavioral.memento.memento import Project, Repository
 
 
@@ -9,14 +7,10 @@ def test_memento():
     repository.backup()
     assert repository.get_project_state() == {'_name': 'project1', '_cost': 1000}
 
-    time.sleep(1)
-
     project.add_expenses(500)
     project.change_project_name("project2")
     repository.backup()
     assert repository.get_project_state() == {'_name': 'project2', '_cost': 1500}
-
-    time.sleep(1)
 
     project.add_expenses(300)
     project.change_project_name("project3")
