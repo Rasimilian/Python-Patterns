@@ -7,7 +7,7 @@ delegates the work to an instance of these classes, instead of acting on its own
 * Converts massive if-else based state machines into objects.
 * Usually, the state transition procedure is implemented to make an object's 
 behavior cyclical.
-* * It is similar to the Strategy pattern. 
+* It is similar to the Strategy pattern. 
 * In Strategy, each implementation is passed to a context object as a parameter 
 to replace another one, while States are created by the context object itself.
 * State stores a reference to the context object that contains it. Strategy does not. 
